@@ -9,10 +9,13 @@
     "start": "node --require dotenv/config index.js",
     "dev": "nodemon --require dotenv/config index.js"
   },
-  "keywords": ["Evaluation Bullets"],
+  "keywords": [
+    "Evaluation Bullets"
+  ],
   "author": "Jacob Oakley",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import bulletsRoutes from "./routes/bullets.js";
+import authenticationRoutes from "./routes/authentication.js";
 
 const PORT = process.env.PORT || 5000;
 const URI = process.env.DB_CONNECTION;
@@ -24,6 +25,7 @@ app.get("/api", (req, res) => {
     }
 });
 app.use('/api/bullets', bulletsRoutes);
+app.use('/api/login', authenticationRoutes);
 
 // Listen
 app.listen(PORT, () => {
@@ -31,6 +33,9 @@ app.listen(PORT, () => {
 });
 
 // Connect to db
-mongoose.connect(URI, () => {
-    console.log("Connected to db")
+mongoose.connect(URI, {
+    autoIndex: true, //make this also true
+})
+.then(() => {
+    console.log('Connected to mongoDB');
 });
